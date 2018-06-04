@@ -1,6 +1,6 @@
 # Command-line tools 
 
-This repository contains **Command-line tools** for optional arguments of [TzLibre claim](https://tzlibre.github.io/split.html).
+This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/sign.html).
 
 These tools are based on a fork of DLS [`fundraiser-tools`](https://github.com/tezos/fundraiser-tools).
 
@@ -10,6 +10,8 @@ The **Command-line tools** support you in:
 1. generating the digital signature of an ethereum address (namely `ETH_addrSignature`) to prove ownership of a Tezos private key and therefore the right to receive TZL coins
 
 To improve usability and security a sandboxed execution environment is provided as a Docker container, along with an invocation bash script.
+
+This code has been informally audited [here](https://www.reddit.com/r/crypto/comments/8mygjg/is_pysodium_python_libsodium_ecdsa_safe/)
 
 ## Security
 
