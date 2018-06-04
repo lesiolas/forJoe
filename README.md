@@ -1,6 +1,6 @@
 # Command-line tools 
 
-This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/sign.html).
+This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/claim.html).
 
 These tools are based on a fork of DLS [`fundraiser-tools`](https://github.com/tezos/fundraiser-tools).
 
