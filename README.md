@@ -62,7 +62,7 @@ You'll need a working Docker environment. Docker installation instructions can b
 Clone the **Command-line tools** repository from GitHub:
 
 ```sh
-git clone https://github.com/tz-libre/fundraiser-tools.git
+git clone https://github.com/tzlibre/fundraiser-tools.git
 ```
 
 then move to the repository folder:
