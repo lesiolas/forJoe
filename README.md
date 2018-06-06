@@ -1,13 +1,13 @@
 # Command-line tools 
 
-This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/split.html).
+This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/sign.html).
 
 These tools are based on a fork of DLS [`fundraiser-tools`](https://github.com/tezos/fundraiser-tools).
 
 The **Command-line tools** support you in:
 
-1. recreate your tezos public key (namely `TZL_pk`) in order to be able to verify digital signature
-1. generating the digital signature of an ethereum address (namely `ETH_addrSignature`) to prove ownership of a Tezos private key and therefore the right to receive TZL coins
+1. recreate your tezos public key (namely "**Tezos public key**") in order to be able to verify digital signature
+2. generating the digital signature of an ethereum address (namely **Cryptographic signature**) to prove ownership of a Tezos private key and therefore the right to receive TZL coins
 
 To improve usability and security a sandboxed execution environment is provided as a Docker container, along with an invocation bash script.
 
@@ -22,8 +22,8 @@ As a standard security practice when handling sensitive data you must:
 ## Table of Contents
 
 - [Repository](#repository): description of the directories and files of the repository
-- [Signature generation](#signature-generation): instructions to generate your `ETH_addrSignature`
-- [Tech details](#tech-details): technical details of the tools used in the sandboxed execution environment.
+- [Signature generation](#signature-generation): instructions to generate your **Cryptographic signature**
+- [Tech details](#tech-details): technical details of the tools used in the sandboxed execution environment
 
 ## Repository
 
@@ -34,22 +34,22 @@ This repository contains the following directories and files:
 - `pykeychecker`: written in Python, this is an extended version (you can verify the [4 diffs](https://github.com/tezos/fundraiser-tools/compare/master...tzlibre:master?diff=split&name=master]#diff-e6c8e5e03826917a611ce5c5e23626fc)) of the broken DLS [`fundraiser-tools`](https://github.com/tezos/fundraiser-tools) which it also fixes. This is the only part of the code that interacts with private and sensible data. It then generates the signature for your Ethereum address. 
 
 
-## Signature generation
+## Instructions
 
 ### Inputs
 This information is required:
 
-- Tezos address (aka public key hash). You can find it in the PDF containing your contribution data.
-- 15 words secret. You can find them in the PDF containing your contribution data.
-- email used when contributing to the Tezos ICO. You can find it in the PDF containing your contribution data.
-- password set during Tezos ICO.
-- an Ethereum address you want to whitelist.
+- "**Tezos public key hash (a/k/a Tezos address)**". You can find it in the PDF containing your contribution data.
+- "**15 words secret**". You can find them in the PDF containing your contribution data.
+- "**Email**" used when contributing to the Tezos ICO. You can find it in the PDF containing your contribution data.
+- "**Password**" set during Tezos ICO.
+- "**Current Ethereum address**, the Ethereum address you want to sign (and where we will airdrop TZL ERC20 tokens).
 
 ### Outputs
 At the end of this process you'll get:
 
-- `TZL_pk`: your Tezos public key
-- `ETH_addrSignature`: signature of your Ethereum address.
+- "**Tezos public key**": your Tezos public key
+- "**Cryptographic signature**": signature of the current Ethereum address.
 
 ### 1. Sandboxed execution environment generation
 To improve security, simplify environment configuration and avoid installing dependencies, you can build a Docker image starting from our `Dockerfile`. 
@@ -128,7 +128,7 @@ your@email.com
 Password:
 yourPassword
    
-Ethereum address to whitelist:
+Current Ethereum address:
 0x1234567890123456789012345678
    
    
@@ -136,18 +136,21 @@ Ethereum address to whitelist:
  * OUTPUT *
  **********
 	  
-Tezos address (your public key hash):
+Tezos public key hash (a/k/a Tezos address):
 tz1bG4r2PkzsxARQFnScVr51NaXrcVdF1Myg
+
+Current Ethereum address:
+0x1234567890123456789012345678
 	  
-Tezos public key (`TZL_pk`):
+Tezos public key:
 012f1e1c8ed3eea205c75323c6db7f2a74b3273921c06a6629056331612d275e
 	  
-Signature of the Ethereum address (`ETH_addrSignature`):
+Cryptographic signature:
 1a9871ca4357ef82ab8b427e428e1f430c78755f4d15b826d89bfc57e0309e3f468b5ea5b73921138f9a5e3d132a995c7bacd5a8a50800589e29232382e66c0d
 	  
 ```
 
-> You should now verify that `Tezos address` provided in output is the same you find in your Tezos contribution PDF.
+> If the field "**Tezos public key hash (a/k/a Tezos address)**" provided in output matches the one you find in your Tezos contribution PDF, the procedure has been completed successfully. 
 
 - - -
 
@@ -221,23 +224,26 @@ your@email.com
 Password:
 yourPassword
    
-Ethereum address to whitelist:
+Current Ethereum address:
 0x1234567890123456789012345678
    
    
  **********
  * OUTPUT *
  **********
-	  
-Tezos address (your public key hash):
+
+Tezos public key hash (a/k/a Tezos address):
 tz1bG4r2PkzsxARQFnScVr51NaXrcVdF1Myg
+
+Current Ethereum address:
+0x1234567890123456789012345678
 	  
-Tezos public key (`TZL_pk`):
+Tezos public key:
 012f1e1c8ed3eea205c75323c6db7f2a74b3273921c06a6629056331612d275e
 	  
-Signature of the Ethereum address (`ETH_addrSignature`):
+Cryptographic signature:
 1a9871ca4357ef82ab8b427e428e1f430c78755f4d15b826d89bfc57e0309e3f468b5ea5b73921138f9a5e3d132a995c7bacd5a8a50800589e29232382e66c0d
-	  
+
 ```
 
 We encourage you to read `gen-signature.sh` content to verify its behavior.
