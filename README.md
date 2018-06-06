@@ -1,6 +1,6 @@
 # Command-line tools 
 
-This repository contains **Command-line tools** to generate proof of ownership for [TzLibre](https://tzlibre.github.io/sign.html).
+This repository contains **Command-line tools** to generate proof of ownership for [TzLibre sign process](https://tzlibre.github.io/sign.html).
 
 These tools are based on a fork of DLS [`fundraiser-tools`](https://github.com/tezos/fundraiser-tools).
 
@@ -46,10 +46,12 @@ This information is required:
 - "**Current Ethereum address**, the Ethereum address you want to sign (and where we will airdrop TZL ERC20 tokens).
 
 ### Outputs
-At the end of this process you'll get:
+At the end of this process you'll get the following outputs to be copy-pasted in the [sign form](https://tzlibre.github.io/sign.html):
 
-- "**Tezos public key**": your Tezos public key
-- "**Cryptographic signature**": signature of the current Ethereum address.
+- "**Tezos public key hash (a/k/a Tezos address)**"
+- "**Current Ethereum address**"
+- "**Tezos public key**"
+- "**Cryptographic signature**" (of the "Current Ethereum address")
 
 ### 1. Sandboxed execution environment generation
 To improve security, simplify environment configuration and avoid installing dependencies, you can build a Docker image starting from our `Dockerfile`. 
